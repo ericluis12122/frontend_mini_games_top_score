@@ -31,7 +31,7 @@ export function iniciarJuego(apiUrl, token) {
       } else {
         if (cuadro.className === actual.className) {
           parejas++;
-          if (parejas === 15) {
+          if (parejas === 12) {
             stopwatch.stop();
             rank.agregarPuntuacion(stopwatch.ms + stopwatch.sec * 1000 + stopwatch.min * 60000, contador);
             setTimeout(() => {
