@@ -34,8 +34,10 @@ export function iniciarJuego(apiUrl, token) {
           if (parejas === 15) {
             stopwatch.stop();
             rank.agregarPuntuacion(stopwatch.ms + stopwatch.sec * 1000 + stopwatch.min * 60000, contador);
-            rank.pintar(document.getElementById("score"));
-            window.location.reload();
+            setTimeout(() => {
+              rank.pintar(document.getElementById("score"));
+              window.location.reload();
+            }, 3000);
           }
           actual = null;
         } else {
