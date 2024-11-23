@@ -1,3 +1,5 @@
+import { VITE_BASE_URL } from "../../config.js";
+
 const form = document.getElementById("login-form");
 
 form.addEventListener("submit", async (event) => {
@@ -5,7 +7,7 @@ form.addEventListener("submit", async (event) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
+    const response = await fetch(`${VITE_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

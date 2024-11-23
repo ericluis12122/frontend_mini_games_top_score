@@ -1,3 +1,5 @@
+import { VITE_BASE_URL } from "../../config.js";
+
 const form = document.getElementById("register-form");
 
 form.addEventListener("submit", async (event) => {
@@ -8,7 +10,7 @@ form.addEventListener("submit", async (event) => {
   
   console.log(email, password);
   if(password === password2) {
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/signup`, {
+    const response = await fetch(`${VITE_BASE_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

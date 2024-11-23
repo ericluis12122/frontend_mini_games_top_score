@@ -1,4 +1,5 @@
 import { iniciarJuego } from "./game.js";
+import { VITE_BASE_URL } from "../../config.js";
 
 const token = localStorage.getItem("authToken");
 
@@ -7,5 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Inicia sesión para jugar.");
     return;
   }
-  iniciarJuego(import.meta.env.VITE_BASE_URL, token);
+  iniciarJuego(VITE_BASE_URL, token);
 });
