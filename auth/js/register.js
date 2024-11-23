@@ -1,4 +1,4 @@
-const apiBaseUrl = "https://backendminigamestopscore-production.up.railway.app";
+const apiBaseUrl = "http://localhost:8080"; //"https://backendminigamestopscore-production.up.railway.app";
 
 const form = document.getElementById("register-form");
 
@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {
   
     if (response.ok) {
       alert("Usuario registrado exitosamente");
-      window.location.href = "/login.html";
+      window.location.href = "../../index.html";
     } else {
       alert("Error al registrar usuario");
     }

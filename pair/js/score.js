@@ -3,7 +3,7 @@ export class Score {
       this.apiUrl = apiUrl;
       this.token = token;
     }
-  
+    
     async agregarPuntuacion(time, count) {
       try {
         const response = await fetch(`${this.apiUrl}/pair`, {
@@ -13,19 +13,18 @@ export class Score {
             Authorization: `Bearer ${this.token}`,
           },
           body: JSON.stringify({ time, count }),
-        })
-        .then((response) => response.json()) // Convertir la respuesta a JSON
-        .then((data) => {
-            // Mostrar el mensaje recibido en el frontend
-            if (data.message) {
-                alert(data.message); // Mostrar mensaje en un alert
-            }
-        })
-        .catch((error) => {
-          console.error("Erroral guardar el puntaje:", error); // Manejar errores en la consola
         });
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+    
+        const data = await response.json();
+        if (data.message) {
+          alert(data.message); // Muestra el mensaje al usuario
+        }
       } catch (error) {
-        console.error(error.message);
+        console.error("Error al guardar el puntaje:", error);
       }
     }
   
