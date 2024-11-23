@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {
   
     if (response.ok) {
       alert("Usuario registrado exitosamente");
-      window.location.href = "../../index.html";
+      window.location.href = "../index.html";
     } else {
       alert("Error al registrar usuario");
     }

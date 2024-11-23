@@ -1,13 +1,13 @@
 .contenedor {
-    width: 500px;
-    height: 400px;
-    padding: 20px;
+    width: 340px;
+    height: 500px;
+    padding: 10px;
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
     background-color: blanchedalmond;
     display: grid;
-    grid: auto/repeat(6, auto);
+    grid: auto/repeat(4, auto);
     gap: 10px;
 }
 .contenedor div {
@@ -24,8 +24,9 @@ h3 {
 }
 
 table {
+    width: 360px;
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid lightgray;
@@ -33,7 +34,7 @@ table {
     margin-top: 2px;
 }
 table td, table th {
-    padding: 10px 40px;
+    padding: 10px 20px;
     font-weight: normal;
 }
 thead {
@@ -46,18 +47,17 @@ tbody > :nth-child(2n + 1) {
 }
 span {
   width:200px;
-  
   font-size:200%;
-  font-family:Orbitron;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   color:black;
 }
 
 #timer {
-  margin-left: 40px;
+    margin-left: 40px;
 }
 
 #numeros {
-  text-align: center;
+    text-align: center;
 }
 div.blue {
     background-color: blue;
@@ -80,17 +80,8 @@ div.orange {
 div.violet {
     background-color: violet;
 }
-div.pink {
-    background-color: pink;
-}
 div.skyblue {
     background-color: skyblue;
-}
-div.gold {
-    background-color: gold;
-}
-div.peru {
-    background-color: peru;
 }
 div.purple {
     background-color: purple;

@@ -4,10 +4,10 @@ import { Score } from "./score.js";
 
 export function iniciarJuego(apiUrl, token) {
   const colors = [
-    "blue", "red", "yellow", "green", "gray", "orange", "violet", "pink",
-    "skyblue", "gold", "peru", "purple", "greenyellow", "maroon", "aliceblue"
+    "blue", "red", "yellow", "green", "gray", "orange", "violet",
+    "skyblue", "purple", "greenyellow", "maroon", "aliceblue"
   ];
-  const contenedor = document.querySelector(".contenedor");
+  const contenedor = document.getElementsByClassName("contenedor")[0];
   const con = document.getElementById("contador");
   const rank = new Score(apiUrl, token);
   const cuadros = [];
