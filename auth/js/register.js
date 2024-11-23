@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://backendminigamestopscore-production.up.railway.app";
+const apiBaseUrl = "https://backendminigamestopscore-production.up.railway.app";
 
 const form = document.getElementById("register-form");
 

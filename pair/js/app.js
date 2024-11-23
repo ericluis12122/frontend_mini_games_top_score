@@ -1,6 +1,6 @@
 import { iniciarJuego } from "./game.js";
 
-const API_URL = "http://backendminigamestopscore-production.up.railway.app";
+const API_URL = "https://backendminigamestopscore-production.up.railway.app";
 const token = localStorage.getItem("authToken");
 
 document.addEventListener("DOMContentLoaded", () => {
