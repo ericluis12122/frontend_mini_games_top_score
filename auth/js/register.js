@@ -20,6 +20,9 @@ form.addEventListener("submit", async (event) => {
   
     if (response.ok) {
       alert("Usuario registrado exitosamente");
+      const data = await response.json(); // Parse JSON response
+      const token = data.token; // Assumes the API response includes a "token" field
+      localStorage.setItem("authToken", token); // Save token in localStorage
       window.location.href = "../index.html";
     } else {
       alert("Error al registrar usuario");
