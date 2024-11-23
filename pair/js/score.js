@@ -43,6 +43,9 @@ export class Score {
   
     async pintar(elemento) {
       const scores = await this.obtenerPuntuaciones();
+      alert(scores[0].time);
+      scores.sort((a, b) => Number(a.time) - Number(b.time));
+      alert(scores[0].time);
       elemento.innerHTML = "";
       const tabla = document.createElement("table");
   
