@@ -42,7 +42,7 @@ export class Score {
     }
   
     async pintar(elemento) {
-      const scores = await this.obtenerPuntuaciones();
+      const {scores, loggedInUserId} = await this.obtenerPuntuaciones();
       scores.sort((a, b) => Number(a.time) - Number(b.time));
       elemento.innerHTML = "";
       const tabla = document.createElement("table");
@@ -58,8 +58,9 @@ export class Score {
       `;
   
       const tbody = document.createElement("tbody");
-      scores.forEach(({ username, time, count }) => {
+      scores.forEach(({user_id: {_id, username}, time, count }) => {
         const tr = document.createElement("tr");
+        if(loggedInUserId === _id) tr.style.backgroundColor = "#97F7B0";
         tr.innerHTML = `
           <td>${username}</td>
           <td>${this.convertirTiempo(time)}</td>

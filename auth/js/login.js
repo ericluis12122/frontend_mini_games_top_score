@@ -1,5 +1,3 @@
-const apiBaseUrl = "https://backendminigamestopscore-production.up.railway.app";
-
 const form = document.getElementById("login-form");
 
 form.addEventListener("submit", async (event) => {
@@ -7,7 +5,7 @@ form.addEventListener("submit", async (event) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch(`${apiBaseUrl}/login`, {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

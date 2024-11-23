@@ -1,6 +1,5 @@
 import { iniciarJuego } from "./game.js";
 
-const API_URL = "https://backendminigamestopscore-production.up.railway.app";
 const token = localStorage.getItem("authToken");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,5 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Inicia sesión para jugar.");
     return;
   }
-  iniciarJuego(API_URL, token);
+  iniciarJuego(import.meta.env.VITE_BASE_URL, token);
 });
