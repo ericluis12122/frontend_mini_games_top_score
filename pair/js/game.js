@@ -1,6 +1,6 @@
-import { arregloAleatorio } from "./utils.js";
-import { stopwatch } from "./stopwatch.js";
-import { Score } from "./score.js";
+import { mezclarArreglo } from "../../public/js/utils.js";
+import { Stopwatch } from "../../public/js/stopwatch.js";
+import { Score } from "../../public/js/score.js";
 
 export function iniciarJuego(apiUrl, token) {
   const colors = [
@@ -9,13 +9,13 @@ export function iniciarJuego(apiUrl, token) {
   ];
   const contenedor = document.getElementsByClassName("contenedor")[0];
   const con = document.getElementById("contador");
-  const rank = new Score(apiUrl, token);
-  const cuadros = [];
+  const rank = new Score(apiUrl, token, 'pair');
+  const timer = new Stopwatch();
   let parejas = 0, actual = null, waiting = false, contador = 0;
 
   rank.pintar(document.getElementById("score"));
 
-  const coloresDuplicados = arregloAleatorio([...colors, ...colors], 100);
+  const coloresDuplicados = mezclarArreglo([...colors, ...colors]);
 
   coloresDuplicados.forEach((color, i) => {
     const cuadro = document.createElement("div");
@@ -32,8 +32,8 @@ export function iniciarJuego(apiUrl, token) {
         if (cuadro.className === actual.className) {
           parejas++;
           if (parejas === 12) {
-            stopwatch.stop();
-            rank.agregarPuntuacion(stopwatch.ms + stopwatch.sec * 1000 + stopwatch.min * 60000, contador);
+            timer.stop();
+            rank.agregarPuntuacion(timer.ms + timer.sec * 1000 + timer.min * 60000, contador);
             setTimeout(() => {
               rank.pintar(document.getElementById("score"));
               window.location.reload();
@@ -50,9 +50,8 @@ export function iniciarJuego(apiUrl, token) {
           }, 500);
         }
       }
-      if (contador === 1) stopwatch.start();
+      if (contador === 1) timer.start();
     });
-    cuadros.push(cuadro);
     contenedor.appendChild(cuadro);
   });
 }

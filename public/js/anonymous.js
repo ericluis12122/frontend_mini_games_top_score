@@ -1,11 +1,11 @@
 import { VITE_BASE_URL } from "../../config.js";
 
-const form = document.getElementById("login-form");
+const anonymous = document.getElementById("anonymous");
 
-form.addEventListener("submit", async (event) => {
+anonymous.addEventListener("click", async (event) => {
     event.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = "anonymous@anonymous.anonymous";
+    const password = "anonymous";
 
     const response = await fetch(`${VITE_BASE_URL}/login`, {
         method: "POST",
