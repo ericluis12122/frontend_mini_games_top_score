@@ -19,7 +19,7 @@ anonymous.addEventListener("click", async (event) => {
         const data = await response.json(); // Parse JSON response
         const token = data.token; // Assumes the API response includes a "token" field
         localStorage.setItem("authToken", token); // Save token in localStorage
-        window.location.href = "../dashboard.html";
+        window.location.href = "./dashboard.html";
     } else {
         alert("Error de autenticación");
     }
