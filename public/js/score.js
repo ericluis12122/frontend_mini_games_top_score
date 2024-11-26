@@ -76,6 +76,33 @@ export class Score {
       tabla.appendChild(tbody);
       elemento.appendChild(tabla);
     }
+
+    async pintarUsername(elemento, cantidad) {
+      try {
+          const { scores } = await this.obtenerPuntuaciones();
+  
+          // Asegúrate de que scores es un arreglo y está ordenado
+          if (!Array.isArray(scores)) {
+              throw new Error("Los puntajes no están en un formato válido.");
+          }
+  
+          // Ordenar por tiempo (menor a mayor)
+          scores.sort((a, b) => Number(a.time) - Number(b.time));
+  
+          // Limpiar el contenido del elemento
+          elemento.innerHTML = "<p>Top 3:</p>";
+  
+          // Iterar y mostrar los puntajes hasta el límite indicado por 'cantidad'
+          for (let i = 0; i < Math.min(cantidad, scores.length); i++) {
+              const score = scores[i];
+              const username = score.user_id?.username || "Unknown"; // Evitar errores si falta el username
+              elemento.innerHTML += `<p>${username}</p>`;
+          }
+      } catch (error) {
+          console.error("Error al obtener y pintar los puntajes:", error);
+          elemento.innerHTML = "<p>Error loading scores.</p>";
+      }
+  }  
   
     convertirTiempo(milisegundos) {
       const minutos = Math.floor(milisegundos / 60000);

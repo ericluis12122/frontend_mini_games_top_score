@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Mini-Games Dashboard</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body>
-    <a href="./index.html">atras</a>
-    <a href="pair/pair.html">pair</a>
-    <a href="mine/mine.html">mine</a>
+    <header>
+        <nav>
+            <a href="./index.html" class="btn-back">← Back</a>
+        </nav>
+        <h1>Mini-Games</h1>
+        <h3>Develop mental agility and memory</h3>
+    </header>
+    <main id="gallery">
+        <section id="pair">
+            <a href="pair/pair.html" aria-label="Play Pair Matching Game">
+                <img src="/public/img/pair.jpg" alt="Pair Matching Game">
+            </a>
+            <div class="score-container" id="pair_score">
+                <p>aa</p>
+                <p>aa</p>
+                <p>aa</p>
+                <p>aa</p>
+            </div>
+        </section>
+        <section id="mine">
+            <a href="mine/mine.html" aria-label="Play Minesweeper Game">
+                <img src="/public/img/mine.png" alt="Minesweeper Game">
+            </a>
+            <div class="score-container" id="mine_score">
+                <p>-</p>
+                <p>-</p>
+                <p>-</p>
+                <p>-</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Mini-Games.</p>
+    </footer>
+    <script type="module" src="./public/js/dashboard.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ export function iniciarJuego(apiUrl, token) {
     "blue", "red", "yellow", "green", "gray", "orange", "violet",
     "skyblue", "purple", "greenyellow", "maroon", "aliceblue"
   ];
-  const contenedor = document.getElementsByClassName("contenedor")[0];
+  const tablero = document.getElementsByClassName("tablero")[0];
   const con = document.getElementById("contador");
   const rank = new Score(apiUrl, token, 'pair');
   const timer = new Stopwatch();
@@ -52,6 +52,6 @@ export function iniciarJuego(apiUrl, token) {
       }
       if (contador === 1) timer.start();
     });
-    contenedor.appendChild(cuadro);
+    tablero.appendChild(cuadro);
   });
 }
