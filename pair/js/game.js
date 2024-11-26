@@ -20,7 +20,7 @@ export function iniciarJuego(apiUrl, token) {
   coloresDuplicados.forEach((color, i) => {
     const cuadro = document.createElement("div");
     cuadro.addEventListener("click", () => {
-      if (waiting || cuadro === actual) return;
+      if (waiting || cuadro === actual || cuadro.classList.contains("resuelto")) return;
 
       cuadro.classList.add(color);
       contador++;
@@ -30,7 +30,10 @@ export function iniciarJuego(apiUrl, token) {
         actual = cuadro;
       } else {
         if (cuadro.className === actual.className) {
+          cuadro.classList.add("resuelto");
+          actual.classList.add("resuelto");
           parejas++;
+          actual = null; 
           if (parejas === 12) {
             timer.stop();
             rank.agregarPuntuacion(timer.ms + timer.sec * 1000 + timer.min * 60000, contador);
